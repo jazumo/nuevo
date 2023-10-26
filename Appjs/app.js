@@ -1,6 +1,14 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const mongoose = require('mongoose')
+require('dotenv').config()
+
+app.use(express.json())
+
+mongoose.connect(process.env.MONGOOSE_KEY, {
+  useNewUrlParser: true,
+})
 
 app.get('/get', (req, res) => {
   res.send('Request GET')
@@ -32,4 +40,5 @@ app.get('/apellido', (req, res) => {
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}\nhttp://localhost:${port}/`)
+  console.log(process.env.MONGOOSE_KEY)
 })
