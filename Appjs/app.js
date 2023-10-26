@@ -9,6 +9,15 @@ app.use(express.json())
 mongoose.connect(process.env.MONGOOSE_KEY, {
   useNewUrlParser: true,
 })
+//ESQUEMA DE ELEMENTOS
+const Cat = mongoose.model('Cat', { name: String });
+
+//EJEMPLO DE POST
+app.post('/testpost', (req, res) => {
+  const kitty = new Cat({ name: 'Zildjian' });
+  kitty.save().then(() => console.log('meow'));
+  res.send('succesful post')
+})
 
 app.get('/get', (req, res) => {
   res.send('Request GET')
