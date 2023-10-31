@@ -1,8 +1,10 @@
-const express = require('express')
+import express, { json } from 'express'
 const app = express()
 const port = 3000
-const mongoose = require('mongoose')
-require('dotenv').config()
+import mongoose, { Schema } from 'mongoose'
+import studentRoute from './Routes/StudentRoutes.js'
+import dotenv from 'dotenv'
+dotenv.config()
 
 app.use(express.json())
 
@@ -46,6 +48,9 @@ app.get('/nombre', (req, res) => {
 app.get('/apellido', (req, res) => {
   res.send('Zuniga')
 })
+
+//EJEMPLO DE MODELO Y CONTROLADOR
+app.use(studentRoute)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}\nhttp://localhost:${port}/`)
