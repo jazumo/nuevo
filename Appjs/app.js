@@ -3,6 +3,9 @@ const app = express()
 const port = 3000
 import mongoose, { Schema } from 'mongoose'
 import studentRoute from './Routes/StudentRoutes.js'
+import pizzaRoute from './Routes/PizzasRoute.js'
+import ingredienteRoute from './Routes/IngredientesRoute.js'
+import menuRoute from './Routes/MenusRoute.js'
 import dotenv from 'dotenv'
 dotenv.config()
 
@@ -51,6 +54,11 @@ app.get('/apellido', (req, res) => {
 
 //EJEMPLO DE MODELO Y CONTROLADOR
 app.use(studentRoute)
+
+app.use(pizzaRoute)
+app.use(ingredienteRoute)
+app.use(menuRoute)
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}\nhttp://localhost:${port}/`)
