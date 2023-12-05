@@ -1,0 +1,5 @@
+.baseline{
+    display: flex;
+    background-color: white;
+    justify-content: space-around;
+}

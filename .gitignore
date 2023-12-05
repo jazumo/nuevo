@@ -1,2 +1,6 @@
 Appjs/node_modules/
 Appjs/.env/
+ReactTest/test/node_modules/
+ReactTest/test/.pnp
+ReactTest/test/.pnp.js
+ReactTest/test/coverage
